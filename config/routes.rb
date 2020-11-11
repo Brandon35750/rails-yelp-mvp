@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #get '/restaurants/new', to: 'restaurants#new', as: :new_restaurant
   #post '/restaurants', to: 'restaurants#create'
   #get '/restaurants/:id', to: 'restaurants#show', as: :restaurant
-  resources :restaurants do
-    resources :reviews
+  resources :restaurants, only: [:index, :new, :create, :show] do
+    resources :reviews, only: [:new, :create]
   end
 end
